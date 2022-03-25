@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
-import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Photo from './features/Photo';
 import NotFound from './components/NotFound'
 import './App.scss';
+import Header from './components/Header';
 
 function App() {
   return (
@@ -11,11 +12,7 @@ function App() {
 
         <BrowserRouter>
         
-          <ul>
-            <li><Link to="/photos">Go to photo page</Link></li>
-            <li><Link to="/photos/add">Go to Add new photo page</Link></li>
-            <li><Link to="/photos/123">Go to Edit photo page</Link></li>
-          </ul>
+          <Header />
         
           <Routes>
             <Route path="/" element={<Navigate to="/photos" replace />} />

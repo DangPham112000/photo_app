@@ -1,0 +1,16 @@
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+
+    background-image: url(../../assets/images/livingroom-bg.jpg);
+    background-color: rgba($color: #c5cdd5, $alpha: 0.2);
+    background-position: center;
+    background-size: cover;    
+
+    &__title {
+        color: #fff;
+        font-weight: bold;
+    }
+}
