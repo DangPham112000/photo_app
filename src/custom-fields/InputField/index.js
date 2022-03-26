@@ -4,7 +4,7 @@ import { FormGroup, Input, Label } from 'reactstrap'
 
 function InputField(props) {
     const {
-        field, 
+        field,
         type, label, placeholder, disabled
     } = props;
     const { name, value, onChange, onBlur } = field;
@@ -18,6 +18,7 @@ function InputField(props) {
                 value={value}
                 onChange={onChange}
                 onBlur={onBlur}
+
                 placeholder={placeholder}
                 type={type}
                 disabled={disabled}
