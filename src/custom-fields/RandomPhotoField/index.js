@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormGroup, Label } from 'reactstrap';
+import { FormFeedback, FormGroup, Label } from 'reactstrap';
 import RandomPhoto from 'components/RandomPhoto';
+import { ErrorMessage } from 'formik';
 
 function RandomPhotoField(props) {
     const {
@@ -9,6 +10,8 @@ function RandomPhotoField(props) {
         label,
     } = props;
     const { name } = field;
+    const { errors, touched } = form;
+    const showError = errors[name] && touched[name];
     
     const handleRandomPhotoChange = (newImgUrl) => {
         form.setFieldValue(name, newImgUrl);
@@ -22,6 +25,9 @@ function RandomPhotoField(props) {
                 {...field}
                 onChange={handleRandomPhotoChange}
             />
+
+            <div className={showError ? 'is-invalid' : ''}></div>            
+            <ErrorMessage name={name} component={FormFeedback} />
         </FormGroup>
     )
 }
