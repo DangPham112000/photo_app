@@ -11,11 +11,11 @@ const getRandomImageUrl = () => {
 function RandomPhoto(props) {
     const { name, value, onChange, onBlur } = props;
     
-    const handleClickRandomButton = async () => {
+    const handleClickRandomButton = () => {
         if (onChange) {
             const newImgUrl = getRandomImageUrl();
             // mong muốn hàm onchange ở trên gửi xuống khi kích hoạt với tham số newImgUrl sẽ cập nhật lại value cho field
-            await onChange(newImgUrl);
+            onChange(newImgUrl);
         }
     }
     

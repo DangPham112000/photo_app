@@ -11,10 +11,12 @@ function AddEditPage(props) {
     const navigate = useNavigate();
     const handleSubmitForm = values => {
         return new Promise(resolve => {
-            console.log('Form submit: ', values);
+            const id = 20 + Math.trunc(Math.random() * 2000);
+            const newValues = {...values, id};
+            console.log('Form submit: ', newValues);
 
             setTimeout(() => {
-                const actionAdd = addPhoto(values);
+                const actionAdd = addPhoto(newValues);
                 dispatch(actionAdd);
         
                 navigate('/photos');

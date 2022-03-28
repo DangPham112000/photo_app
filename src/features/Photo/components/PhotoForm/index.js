@@ -12,15 +12,16 @@ function PhotoForm(props) {
   const initialValues = {
     title: '',
     categoryId: '',
-    photo: ''
+    photoUrl: ''
   };
 
   const validationSchema = Yup.object().shape({
+    
     title: Yup.string().required('This field is require!!!'),
 
     categoryId: Yup.number().required('This field is required!!').nullable(),
 
-    photo: Yup.string().required('This field is require!'),
+    photoUrl: Yup.string().required('This field is require!'),
   });
   
   return (
@@ -53,7 +54,7 @@ function PhotoForm(props) {
             />
 
             <FastField 
-              name="photo"
+              name="photoUrl"
               component={RandomPhotoField}
               
               label="Photo"
