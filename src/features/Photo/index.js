@@ -12,6 +12,7 @@ function PhoTo(props) {
         <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="add" element={<AddEditPage />} />
+            <Route path=":photoId" element={<AddEditPage />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

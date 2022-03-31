@@ -9,11 +9,7 @@ import RandomPhotoField from 'custom-fields/RandomPhotoField'
 import * as Yup from 'yup'
 
 function PhotoForm(props) {
-  const initialValues = {
-    title: '',
-    categoryId: '',
-    photoUrl: ''
-  };
+  const { initialValues, isEditForm } = props;
 
   const validationSchema = Yup.object().shape({
     
@@ -61,9 +57,9 @@ function PhotoForm(props) {
             />
 
             <FormGroup>
-              <Button type="submit" color='primary'>
+              <Button type="submit" color={ isEditForm ? 'success' : 'primary'}>
                   {isSubmitting && <Spinner size='sm' />}
-                  Add to album
+                  { isEditForm ? 'Update your photo' : 'Add to album'}
               </Button>
             </FormGroup>
           </Form>

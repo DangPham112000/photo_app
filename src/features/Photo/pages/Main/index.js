@@ -10,18 +10,17 @@ import { Container } from 'reactstrap';
 function MainPage(props) {
     const photos = useSelector(state => state.photos);
     const dispatch = useDispatch();
-    const negative = useNavigate();
-    console.log('photos: ', photos)
+    const navigate = useNavigate();
 
     const handlePhotoEditClick = (photo) => {
-        console.log(photo);
+        const photoUrl = `/photos/${photo.id}`;
+        navigate(photoUrl);
     }
     
     const handlePhotoRemoveClick = (photo) => {
-        console.log(photo);
         const actionRemove = removePhoto(photo.id);
         dispatch(actionRemove);
-        negative('/photos');
+        navigate('/photos');
     }
 
     return (

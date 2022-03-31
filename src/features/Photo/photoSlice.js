@@ -77,20 +77,23 @@ const photo = createSlice({
             const newPhoto = action.payload;
             state.push(newPhoto);
         },
-        // editPhoto: (state, action) => {
-        //     const newPhoto = action.payload;
-        //     state = [...state ];
-        // },
         removePhoto: (state, action) => {
             const idPhoto = action.payload;
-            console.log(idPhoto, action.payload, (action.payload !== idPhoto));
             return state.filter((photo) => photo.id !== idPhoto);
-        }
+        },
+        updatePhoto: (state, action) => {
+            const newPhoto = action.payload;
+            const newPhotoIndex = state.findIndex(photo => photo.id === newPhoto.id); // return index or -1
+
+            if (newPhotoIndex >= 0) {
+                state[newPhotoIndex] = newPhoto;
+            }
+        },
     }
 });
 
 
 const { reducer, actions } = photo;
 
-export const { addPhoto, removePhoto } = actions;
+export const { addPhoto, removePhoto, updatePhoto } = actions;
 export default reducer;
